@@ -4,8 +4,6 @@ import "./Form.scss";
 const Form = (props) => {
   const { data, handleChange, required, error, handleSubmit } = props;
 
-  console.log("data", data);
-
   return (
     <div className="Form">
       <form id="survey-form" autoComplete="off" onSubmit={handleSubmit}>
@@ -24,7 +22,7 @@ const Form = (props) => {
                     </label>
                     <input
                       type={question?.questionType}
-                      name={question?.questionId}
+                      name="film"
                       id={question?.questionId}
                       placeholder="Enter the name of the film"
                       autoComplete="nope"
