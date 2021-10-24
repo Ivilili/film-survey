@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:3000/api/v1/survey",
+  baseURL: "https://filmsuvey.netlify.app/api/v1/survey",
 });
