@@ -19,11 +19,13 @@ function SuccessPage() {
         <p>Thank you for your film review.</p>
         <div className="SuccessPage__answers">
           <span>Film: </span>
-          <span>{review[0].answer}</span>
+          <span>{review?.answers[0]?.answer}</span>
         </div>
         <div className="SuccessPage__answers">
           <span>Review: </span>
-          <span>{review[1].answer === "movie-review-good" ? 5 : 1}</span>
+          <span>
+            {review?.answers[1]?.answer === "movie-review-good" ? 5 : 1}
+          </span>
         </div>
         <p>If you like to review more films, please do so here</p>
         <Link to="/">
