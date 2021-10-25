@@ -87,7 +87,7 @@ createServer({
     // Responding to a POST request
     this.post("/:id/answers", (schema, request) => {
       let attrs = JSON.parse(request.requestBody);
-      if (!request.requestBody) {
+      if (request.status === 500) {
         let headers = {};
         let data = {
           errors: [
@@ -99,6 +99,23 @@ createServer({
         };
 
         return new Response(500, headers, data);
+      }
+
+      if (!attrs) {
+        let headers = {};
+        let data = {
+          errors: [
+            {
+              source: { pointer: "data/attributes/answers/film" },
+              detail: "The value is required",
+            },
+            {
+              source: { pointer: "data/attributes/answers/review" },
+              detail: "The value is required",
+            },
+          ],
+        };
+        return new Response(422, headers, data);
       }
 
       return { type: "surveyAnswers", attributes: attrs };

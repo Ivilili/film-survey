@@ -14,7 +14,6 @@ function App() {
   const history = useHistory();
 
   const handleChange = (e) => {
-    console.log(e, "e.target");
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
